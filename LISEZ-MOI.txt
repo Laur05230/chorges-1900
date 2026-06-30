@@ -1,0 +1,15 @@
+CHORGES 1900 - VERSION 1
+
+Gardez vos images dans le dossier images :
+1.png, 2.png, 3.png ... 11.png
+
+Chaque vue s'ouvre avec :
+https://votre-adresse.github.io/chorges-1900/?photo=1
+https://votre-adresse.github.io/chorges-1900/?photo=2
+etc.
+
+Sur téléphone :
+- un doigt : déplacer l'image
+- deux doigts : zoom + rotation
+- curseur : opacité
+- bouton Recentrer : remise à zéro
