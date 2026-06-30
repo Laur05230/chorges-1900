@@ -1,0 +1,5 @@
+html,body{margin:0;height:100%;overflow:hidden;background:#000;font-family:Arial}
+#camera{position:fixed;inset:0;width:100%;height:100%;object-fit:cover}
+#overlay{position:fixed;top:50%;left:50%;max-width:95%;transform:translate(-50%,-50%);opacity:.55;touch-action:none}
+#ui{position:fixed;left:10px;right:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;padding:10px;border-radius:10px}
+input{width:100%}

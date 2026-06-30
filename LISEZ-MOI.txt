@@ -1,0 +1,5 @@
+Copiez vos images 1.png à 10.png dans le dossier images.
+Publiez le dossier sur GitHub Pages.
+Utilisez des URL comme :
+...?photo=1
+...?photo=2
