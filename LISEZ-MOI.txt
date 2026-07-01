@@ -1,0 +1,8 @@
+CHORGES HIER ET AUJOURD'HUI - RC1
+
+À remplacer sur GitHub :
+index.html, style.css, script.js, vues.json, logo.png, LISEZ-MOI.txt
+
+À garder : dossier images avec 1.png à 11.png
+
+Test : https://laur05230.github.io/chorges-1900/?photo=1
