@@ -1,0 +1,146 @@
+
+/* === PAGE D'ACCUEIL PLUS PROCHE DE LA MAQUETTE === */
+
+.welcome {
+  justify-content: space-between !important;
+  padding: calc(34px + env(safe-area-inset-top)) 24px calc(36px + env(safe-area-inset-bottom)) !important;
+  background:
+    linear-gradient(rgba(243,234,216,.08), rgba(243,234,216,.18)),
+    url("accueil-fond.jpg") center center / cover no-repeat !important;
+}
+
+.welcome-brand {
+  justify-content: center !important;
+  padding-top: 2px !important;
+}
+
+.welcome-brand img {
+  width: min(72vw, 315px) !important;
+  max-height: 210px !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.welcome-card {
+  width: min(88vw, 430px) !important;
+  padding: 32px 24px 26px !important;
+  border-radius: 22px !important;
+  background: rgba(243,234,216,.90) !important;
+  color: #173522 !important;
+  box-shadow: 0 18px 55px rgba(0,0,0,.24) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.welcome-card h1 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(44px, 10vw, 66px) !important;
+  letter-spacing: 2px !important;
+  color: #234d35 !important;
+  line-height: .95 !important;
+  margin: 0 !important;
+}
+
+.welcome-card p {
+  margin: 10px 0 0 !important;
+  font-size: clamp(18px, 4vw, 25px) !important;
+  font-weight: 700 !important;
+  color: #234d35 !important;
+}
+
+.welcome-dot {
+  width: 7px !important;
+  height: 7px !important;
+  margin: 24px auto 22px !important;
+  border-radius: 50% !important;
+  background: rgba(35,77,53,.45) !important;
+  box-shadow:
+    -74px 0 0 rgba(35,77,53,.16),
+     74px 0 0 rgba(35,77,53,.16) !important;
+}
+
+.welcome-card small {
+  margin: 0 auto 28px !important;
+  color: #111 !important;
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+}
+
+.welcome-card button {
+  width: 100% !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  padding: 17px 22px !important;
+  background: linear-gradient(180deg, #315e43, #1e4931) !important;
+  color: white !important;
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.20) !important;
+}
+
+.welcome-card button span {
+  float: right !important;
+  font-size: 26px !important;
+  line-height: 18px !important;
+}
+
+@media (max-width: 430px) {
+  .welcome {
+    padding-top: calc(34px + env(safe-area-inset-top)) !important;
+    padding-bottom: calc(34px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .welcome-brand img {
+    width: min(76vw, 300px) !important;
+    max-height: 200px !important;
+  }
+
+  .welcome-card {
+    width: min(88vw, 410px) !important;
+    padding: 30px 22px 24px !important;
+  }
+
+  .welcome-card h1 {
+    font-size: clamp(44px, 12vw, 60px) !important;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .welcome {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    padding: 18px 32px !important;
+  }
+
+  .welcome-brand img {
+    width: min(30vw, 230px) !important;
+    max-height: 190px !important;
+  }
+
+  .welcome-card {
+    width: min(42vw, 390px) !important;
+    padding: 22px !important;
+  }
+
+  .welcome-card h1 {
+    font-size: 42px !important;
+  }
+
+  .welcome-card p {
+    font-size: 18px !important;
+  }
+
+  .welcome-dot {
+    margin: 14px auto !important;
+  }
+
+  .welcome-card small {
+    display: none !important;
+  }
+
+  .welcome-card button {
+    padding: 14px 20px !important;
+    font-size: 18px !important;
+  }
+}
