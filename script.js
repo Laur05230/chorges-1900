@@ -1,6 +1,24 @@
 const params = new URLSearchParams(window.location.search);
 const photoNumber = params.get('photo') || '1';
 
+function getAppBaseUrl() {
+  const path = window.location.pathname;
+  if (path.endsWith('/')) return window.location.origin + path;
+
+  const lastPart = path.split('/').pop() || '';
+  if (lastPart.includes('.')) {
+    return window.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
+  }
+
+  return window.location.origin + path + '/';
+}
+
+const APP_BASE = getAppBaseUrl();
+
+function assetUrl(relativePath) {
+  return new URL(relativePath, APP_BASE).href;
+}
+
 const camera = document.getElementById('camera');
 const oldPhoto = document.getElementById('oldPhoto');
 const opacitySlider = document.getElementById('opacitySlider');
@@ -26,6 +44,10 @@ function showError(message) {
   errorBox.style.display = 'block';
 }
 
+function hideError() {
+  errorBox.style.display = 'none';
+}
+
 function applyTransform() {
   oldPhoto.style.opacity = state.opacity;
   oldPhoto.style.transform =
@@ -47,21 +69,23 @@ function center(a, b) {
 
 async function loadView() {
   try {
-    const response = await fetch('vues.json', { cache: 'no-store' });
+    const response = await fetch(assetUrl('vues.json'), { cache: 'no-store' });
     const views = await response.json();
     const view = views[photoNumber] || views['1'];
 
     placeTitle.textContent = view.titre || `Vue ${photoNumber}`;
-    placePrecision.textContent = view.precision || '';
+    if (placePrecision) placePrecision.textContent = view.precision || '';
     placeDate.textContent = view.date || 'Autrefois';
     pastLabel.textContent = view.date || 'Autrefois';
-    oldPhoto.src = `images/${view.image || photoNumber + '.png'}`;
+
+    const imageFile = view.image || `${photoNumber}.png`;
+    oldPhoto.src = assetUrl(`images/${imageFile}`);
   } catch (error) {
     placeTitle.textContent = `Vue ${photoNumber}`;
-    placePrecision.textContent = '';
+    if (placePrecision) placePrecision.textContent = '';
     placeDate.textContent = 'Autrefois';
     pastLabel.textContent = 'Autrefois';
-    oldPhoto.src = `images/${photoNumber}.png`;
+    oldPhoto.src = assetUrl(`images/${photoNumber}.png`);
   }
 }
 
@@ -140,13 +164,16 @@ resetBtn.addEventListener('click', () => {
 
 hideBtn.addEventListener('click', () => {
   oldPhoto.classList.toggle('hidden-photo');
-  hideBtn.querySelector('em').textContent = oldPhoto.classList.contains('hidden-photo') ? 'Afficher' : 'Masquer';
+  hideBtn.querySelector('em').textContent =
+    oldPhoto.classList.contains('hidden-photo') ? 'Afficher' : 'Masquer';
 });
 
 startBtn.addEventListener('click', startCamera);
 
+oldPhoto.addEventListener('load', hideError);
+
 oldPhoto.addEventListener('error', () => {
-  showError(`Image introuvable. Vérifiez que le fichier images/${photoNumber}.png existe bien.`);
+  showError(`Image introuvable : ${oldPhoto.src}`);
 });
 
 loadView().then(applyTransform);
