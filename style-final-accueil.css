@@ -1,0 +1,350 @@
+ :root {
+  --green: #1f4828;
+  --green-dark: #12351d;
+  --cream: #f4ead8;
+  --gold: #d5b76f;
+  --ink: #142216;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+  touch-action: none;
+}
+
+#camera {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+#oldPhoto {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 92vw;
+  max-width: none;
+  opacity: .55;
+  transform-origin: center center;
+  z-index: 2;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--cream);
+  background: radial-gradient(circle at 50% 0%, rgba(213,183,111,.24), transparent 35%), linear-gradient(180deg, #285a32, var(--green-dark));
+}
+
+.welcome-engraving {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .12;
+  filter: sepia(.4) saturate(.8);
+}
+
+.welcome-card {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 420px);
+  padding: 28px 22px;
+  border: 1px solid rgba(244,234,216,.24);
+  border-radius: 28px;
+  text-align: center;
+  background: rgba(18,53,29,.72);
+  box-shadow: 0 20px 60px rgba(0,0,0,.38);
+  backdrop-filter: blur(8px);
+}
+
+.welcome-logo {
+  width: 118px;
+  height: 118px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.welcome h1 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.welcome p {
+  margin: 7px 0 22px;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.welcome button {
+  border: 0;
+  border-radius: 18px;
+  padding: 15px 28px;
+  background: var(--cream);
+  color: var(--green-dark);
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(0,0,0,.26);
+}
+
+.welcome small {
+  display: block;
+  margin: 18px auto 0;
+  max-width: 330px;
+  line-height: 1.35;
+  opacity: .92;
+}
+
+#topBar {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  min-height: 116px;
+  padding: calc(10px + env(safe-area-inset-top)) 14px 12px;
+  color: var(--cream);
+  background: linear-gradient(180deg, rgba(31,72,40,.96), rgba(31,72,40,.70), rgba(31,72,40,0));
+  text-shadow: 0 2px 8px rgba(0,0,0,.55);
+  pointer-events: none;
+}
+
+.top-logo {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.brand {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  line-height: 1;
+}
+
+.baseline {
+  margin-top: 3px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.rule {
+  width: 150px;
+  height: 1px;
+  margin: 8px 0 6px;
+  background: rgba(244,234,216,.58);
+}
+
+.place-title {
+  max-width: calc(100vw - 110px);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.place-precision {
+  margin-top: 1px;
+  font-size: 12px;
+  opacity: .92;
+}
+
+.place-date {
+  margin-top: 2px;
+  font-size: 13px;
+  opacity: .9;
+}
+
+.tools {
+  position: fixed;
+  z-index: 35;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tools button {
+  width: 86px;
+  min-height: 76px;
+  border: 0;
+  border-radius: 20px;
+  background: rgba(244,234,216,.96);
+  color: var(--green-dark);
+  box-shadow: 0 6px 18px rgba(0,0,0,.32);
+  font-weight: 800;
+}
+
+.tools span {
+  display: block;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.tools em {
+  display: block;
+  margin-top: 7px;
+  font-style: normal;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .25px;
+}
+
+#bottomBar {
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 15px 18px calc(15px + env(safe-area-inset-bottom));
+  color: var(--cream);
+  background: linear-gradient(180deg, rgba(31,72,40,0), rgba(31,72,40,.82) 18%, rgba(31,72,40,.98));
+  text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+
+.time-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#opacitySlider {
+  width: 100%;
+  accent-color: var(--gold);
+}
+
+.gesture-hint {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  opacity: .84;
+}
+
+.hidden-photo { display: none !important; }
+
+#errorBox {
+  position: fixed;
+  z-index: 80;
+  left: 14px;
+  right: 14px;
+  bottom: 132px;
+  display: none;
+  padding: 12px;
+  border-radius: 14px;
+  color: #fff;
+  background: rgba(120,0,0,.92);
+  line-height: 1.35;
+}
+
+@media (max-width: 390px) {
+  #topBar { min-height: 104px; }
+  .top-logo { width: 56px; height: 56px; }
+  .brand { font-size: 21px; }
+  .baseline { font-size: 13px; }
+  .place-title { font-size: 14px; }
+  .tools button { width: 74px; min-height: 68px; }
+  .tools em { font-size: 9.5px; }
+  .gesture-hint { display: none; }
+}
+
+@media (max-height: 660px) {
+  #topBar { min-height: 92px; }
+  .top-logo { width: 50px; height: 50px; }
+  .rule { margin: 4px 0; }
+  .tools { top: 53%; }
+  .tools button { min-height: 64px; }
+  .gesture-hint { display: none; }
+}
+
+/* =========================================================
+   ÉCRAN D'ACCUEIL FINAL — CHORGES HIER & AUJOURD'HUI
+   - Masque la gravure
+   - Utilise la carte postale comme fond discret
+   - Conserve le logo actuel
+   ========================================================= */
+
+.welcome {
+  background:
+    linear-gradient(rgba(20, 55, 31, 0.80), rgba(20, 55, 31, 0.94)),
+    url("accueil-fond.jpg") center center / cover no-repeat !important;
+}
+
+.welcome-engraving {
+  display: none !important;
+}
+
+.welcome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(244, 234, 216, 0.13), transparent 46%),
+    linear-gradient(180deg, rgba(18, 53, 29, 0.04), rgba(18, 53, 29, 0.36));
+  pointer-events: none;
+}
+
+.welcome-card {
+  background: rgba(18, 53, 29, 0.76) !important;
+  border: 1px solid rgba(244, 234, 216, 0.30) !important;
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.44) !important;
+}
+
+.welcome-logo {
+  width: 142px !important;
+  height: 142px !important;
+  object-fit: contain !important;
+}
+
+.welcome h1 {
+  font-size: clamp(44px, 8vw, 70px) !important;
+  letter-spacing: 3px !important;
+  color: var(--cream) !important;
+}
+
+.welcome p {
+  font-size: clamp(18px, 4vw, 26px) !important;
+  color: var(--cream) !important;
+}
+
+.welcome button {
+  background: var(--cream) !important;
+  color: var(--green-dark) !important;
+  border-radius: 20px !important;
+  padding: 15px 32px !important;
+}
+
+.welcome small {
+  color: var(--cream) !important;
+}
