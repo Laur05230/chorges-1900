@@ -76,8 +76,8 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 24px;
-  margin-bottom: 10px;
+  padding-top: 0;
+  margin-bottom: 0;
 }
 
 .welcome-logo {
