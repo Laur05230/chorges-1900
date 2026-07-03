@@ -1,1 +1,0 @@
-Remplacer index.html, style.css, script.js, logo.png et accueil-fond.jpg à la racine du dépôt. Garder vues.json et le dossier images.
