@@ -287,3 +287,15 @@ html, body {
   .tools button { min-height: 64px; }
   .gesture-hint { display: none; }
 }
+
+
+/* === AJOUT ÉTAPE 1 === */
+.welcome{
+background:linear-gradient(rgba(20,55,31,.78),rgba(20,55,31,.92)),url("accueil-fond.jpg") center/cover no-repeat!important;
+}
+.welcome::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(244,234,216,.12),transparent 46%);pointer-events:none;}
+.welcome-card{background:rgba(18,53,29,.74)!important;border:1px solid rgba(244,234,216,.28)!important;box-shadow:0 22px 70px rgba(0,0,0,.42)!important;}
+.welcome-logo{width:142px!important;height:142px!important;}
+.welcome h1{font-size:clamp(44px,8vw,70px)!important;letter-spacing:3px!important;}
+.welcome p{font-size:clamp(18px,4vw,26px)!important;}
+.welcome button{border-radius:20px!important;padding:15px 32px!important;}
