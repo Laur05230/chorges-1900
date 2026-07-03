@@ -48,11 +48,16 @@ html, body {
   position: fixed;
   inset: 0;
   z-index: 100;
+  
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  
+  justify-content: center;
   align-items: center;
+  gap: 40px;
+  
   padding: calc(26px + env(safe-area-inset-top)) 20px calc(32px + env(safe-area-inset-bottom));
+  
   background:
     linear-gradient(180deg, rgba(243,234,216,.08), rgba(243,234,216,.18)),
     url("accueil-fond.jpg") center center / cover no-repeat;
@@ -70,15 +75,17 @@ html, body {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 0;
+  align-items: center;
+  padding-top: 24px;
+  margin-bottom: 10px;
 }
 
 .welcome-logo {
-  width: min(74vw, 315px);
+  width: 260px;
+  max-width: 75vw;
   height: auto;
-  max-height: 215px;
   object-fit: contain;
+  display: block;
   filter: drop-shadow(0 4px 10px rgba(255,255,255,.25));
 }
 
