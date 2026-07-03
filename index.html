@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>CHORGES – Hier & Aujourd’hui</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video id="camera" autoplay playsinline muted></video>
+  <img id="oldPhoto" alt="Vue ancienne superposée" />
+
+  <main id="welcome" class="welcome">
+    <div class="welcome-card">
+      <img class="welcome-logo" src="logo.png" alt="Logo Chorges – Hier & Aujourd’hui" />
+      <button id="startBtn" type="button">Commencer</button>
+      <small>Placez-vous dans les empreintes, puis comparez le paysage actuel avec la vue ancienne.</small>
+    </div>
+  </main>
+
+  <header id="topBar">
+    <img class="top-logo" src="logo.png" alt="" />
+    <div class="top-text">
+      <div class="brand">CHORGES</div>
+      <div class="baseline">Hier & Aujourd’hui</div>
+      <div class="rule"></div>
+      <div id="placeTitle" class="place-title">Chargement…</div>
+      <div id="placePrecision" class="place-precision"></div>
+      <div id="placeDate" class="place-date"></div>
+    </div>
+  </header>
+
+  <footer id="bottomBar">
+    <div class="time-labels">
+      <span>Aujourd’hui</span>
+      <span id="pastLabel">Autrefois</span>
+    </div>
+    <input id="opacitySlider" type="range" min="0" max="1" step="0.01" value="0.55" />
+    <div class="action-row">
+      <button id="resetBtn" type="button">↺ Recentrer</button>
+      <button id="hideBtn" type="button">👁 Masquer</button>
+    </div>
+  </footer>
+
+  <div id="errorBox" role="alert"></div>
+  <script src="script.js"></script>
+</body>
+</html>
