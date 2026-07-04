@@ -275,8 +275,8 @@ html, body {
   }
 
   .welcome-logo {
-    width: min(75vw, 300px);
-    max-height: 195px;
+    width: min(90vw, 315px);
+    max-height: 210px;
   }
 
   .welcome-card {
