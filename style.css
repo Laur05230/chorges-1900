@@ -148,8 +148,8 @@ html, body {
 }
 
 .top-logo {
-  width: 100px;
-  height: 100px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   flex: 0 0 auto;
   transform: translateY(-4px);
