@@ -74,15 +74,15 @@ html, body {
 .welcome-logo-wrap {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   padding-top: 0;
   margin-bottom: 0;
 }
 
 .welcome-logo {
-  width: 260px;
-  max-width: 75vw;
+  width: 200px;
+  max-width: 60vw;
   height: auto;
   object-fit: contain;
   display: block;
